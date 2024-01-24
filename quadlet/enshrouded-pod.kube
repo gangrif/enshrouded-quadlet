@@ -1,0 +1,11 @@
+[Install]
+WantedBy=default.target
+
+[Unit]
+#After=valheim-fam-data-volume.service,valheim-fam-config-volume.service
+#Requires=valheim-fam-data-volume.service,valheim-fam-config-volume.service
+
+[Kube]
+Yaml=/srv/supporting-files/container-defs/enshrouded-server/enshrouded-pod.yaml
+PublishPort=15636-15637:15636-15637/udp
+ConfigMap=/srv/supporting-files/container-defs/enshrouded-server/enshrouded-configmap.yaml

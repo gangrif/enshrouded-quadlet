@@ -1,0 +1,36 @@
+# Save the output of this file and use kubectl create -f to import
+# it into Kubernetes.
+#
+# Created with podman-4.8.1
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2024-01-24T15:33:33Z"
+  labels:
+    app: enshrouded
+  name: enshrouded
+spec:
+  containers:
+  - envFrom:
+    - configMapRef:
+        name: enshrouded-env
+        optional: false
+    image: docker.io/sknnr/enshrouded-dedicated-server:latest
+    name: enshrouded-server
+    ports:
+    - containerPort: 15636
+      hostPort: 15636
+      protocol: UDP
+    - containerPort: 15637
+      hostPort: 15637
+      protocol: UDP
+    securityContext: {}
+    volumeMounts:
+    - mountPath: /home/steam/enshrouded/savegame
+      name: srv-container-data-enshrouded-server-data-host-0
+  volumes:
+  - hostPath:
+      path: /srv/container-data/enshrouded-server/data
+      type: Directory
+    name: srv-container-data-enshrouded-server-data-host-0
+

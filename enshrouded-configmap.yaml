@@ -1,0 +1,10 @@
+apiVersion: v1
+kind:  ConfigMap
+metadata:
+  name: enshrouded-env
+data:
+  SERVER_NAME: "YOUR SERVER NAME"
+  GAME_PORT: "15636"
+  SERVER_PASSWORD: YOUR-SERVER-PASSWORD
+  QUERY_PORT: "15637"
+  SERVER_SLOTS: "16"
