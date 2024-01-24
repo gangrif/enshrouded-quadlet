@@ -1,6 +1,10 @@
 # Save the output of this file and use kubectl create -f to import
 # it into Kubernetes.
 #
+# Note: I chose to use hostpath's for volumes, you will need to re-work the volumes section if you plan to do something else
+#  You will also likely need to change the volume path!
+#  In enshrouded-configmap.yaml you will find several env variables, like server name, and server password, that you will need to configure.
+# 
 # Created with podman-4.8.1
 apiVersion: v1
 kind: Pod
